@@ -1,4 +1,5 @@
-SINGULARITY_RELEASE=2.4
+SINGULARITY_RELEASE_BRANCH=release-2.4
+SINGULARITY_DEVELOPMENT_BRANCH=development-2.x
 
 cd /home/vagrant
 mkdir Git
@@ -7,9 +8,9 @@ cd Git
 # Release suid
 git clone https://github.com/singularityware/singularity.git release
 cd release
-git checkout release-${SINGULARITY_RELEASE}
+git checkout ${SINGULARITY_RELEASE_BRANCH}
 ./autogen.sh
-./configure --prefix=/home/vagrant/singularity-${SINGULARITY_RELEASE}
+./configure --prefix=/home/vagrant/singularity-${SINGULARITY_RELEASE_BRANCH}
 make
 sudo make install
 
@@ -20,9 +21,9 @@ cd /home/vagrant/Git
 # Release nosuid
 git clone https://github.com/singularityware/singularity.git release-nosuid
 cd release-nosuid
-git checkout release-${SINGULARITY_RELEASE}
+git checkout ${SINGULARITY_RELEASE_BRANCH}
 ./autogen.sh
-./configure --prefix=/home/vagrant/singularity-${SINGULARITY_RELEASE}-nosuid --disable-suid
+./configure --prefix=/home/vagrant/singularity-${SINGULARITY_RELEASE_BRANCH}-nosuid --disable-suid
 make
 make install
 
@@ -35,7 +36,7 @@ git clone https://github.com/singularityware/singularity.git development
 cd development
 git checkout development
 ./autogen.sh
-./configure --prefix=/home/vagrant/singularity-development
+./configure --prefix=/home/vagrant/singularity-${SINGULARITY_DEVELOPMENT_BRANCH}
 make
 sudo make install
 
@@ -48,6 +49,6 @@ git clone https://github.com/singularityware/singularity.git development-nosuid
 cd development-nosuid
 git checkout development
 ./autogen.sh
-./configure --prefix=/home/vagrant/singularity-development-nosuid --disable-suid
+./configure --prefix=/home/vagrant/singularity-${SINGULARITY_DEVELOPMENT_BRANCH}-nosuid --disable-suid
 make
 make install
