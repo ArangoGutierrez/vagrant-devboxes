@@ -12,6 +12,13 @@ Vagrantfiles and common scripts to quickly setup VMs for test purposes under mul
 In each, it will install the release and development branches of Singularity, in
 suid and no-suid forms, in separate prefixes under /vagrant/home
 
-Also mounts ~/Git on host into /Git.
+Also mounts ~/Git on host into /Git, and installs my dotfiles for the vagrant user.
+
+## Convenience Scripts
+
+  - **init_all.sh** Runs vagrant up, vagrant halt on each directory so that there are suspended VMs of each kind ready to go.
+  - **halt_all.sh** Runs vagrant halt on each directory to suspend all VMs.
+  - **destroy_all.sh ** Runs vagrant destroy on each directory to suspend all VMs.
+
 
 
