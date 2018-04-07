@@ -34,7 +34,7 @@ cd /home/vagrant/Git
 # Dev suid
 git clone https://github.com/singularityware/singularity.git development
 cd development
-git checkout development
+git checkout ${SINGULARITY_DEVELOPMENT_BRANCH}
 ./autogen.sh
 ./configure --prefix=/home/vagrant/singularity-${SINGULARITY_DEVELOPMENT_BRANCH}
 make
@@ -47,7 +47,7 @@ cd /home/vagrant/Git
 # Release nosuid
 git clone https://github.com/singularityware/singularity.git development-nosuid
 cd development-nosuid
-git checkout development
+git checkout ${SINGULARITY_DEVELOPMENT_BRANCH}
 ./autogen.sh
 ./configure --prefix=/home/vagrant/singularity-${SINGULARITY_DEVELOPMENT_BRANCH}-nosuid --disable-suid
 make
